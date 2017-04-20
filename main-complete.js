@@ -39,9 +39,6 @@ function randomEl(list) {
 }
 
 
-var userName = document.getElementById('userName');
-userName.value = randomEl(adjectives)+' '+randomEl(nouns);
-
 
 
 
@@ -59,12 +56,16 @@ userName.value = randomEl(adjectives)+' '+randomEl(nouns);
 var database = firebase.database();
 var messagesRef = database.ref('messages');
 
+var userName = document.getElementById('userName');
 var form = document.getElementById('message-form');
 var message = document.getElementById('message');
 var messages = document.getElementById('messages');
 
 // Initialize Chat
 function chat() {
+
+  userName.value = randomEl(adjectives)+' '+randomEl(nouns);
+
   // Saves message on form submit.
   form.onsubmit = function(e){
     e.preventDefault();
@@ -90,7 +91,7 @@ function loadMessages() {
 // Save a new message on the Firebase DB.
 function saveMessage(e){
   e.preventDefault();
-  messagesRef.push({text: message.value}).then(function() {
+  messagesRef.push({ user: userName.value, text: message.value}).then(function() {
     // Clear message text field and focus on it.
     message.value = '';
     message.focus();
