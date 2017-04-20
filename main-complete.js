@@ -1,4 +1,9 @@
 
+function randomEl(list) {
+    var i = Math.floor(Math.random() * list.length);
+    return list[i];
+}
+
 ///////////////////////
 var database = firebase.database();
 var messagesRef = database.ref('messages');
@@ -111,8 +116,3 @@ var nouns = ["ninja", "chair", "pancake", "statue", "unicorn", "rainbows",
 "maintenance engineering", "mechanic", "miller", "moldmaker", "panel beater",
 "patternmaker", "plant operator", "plumber", "sawfiler", "shop foreman",
 "soaper", "stationary engineer", "wheelwright", "woodworkers"];
-
-function randomEl(list) {
-    var i = Math.floor(Math.random() * list.length);
-    return list[i];
-}
