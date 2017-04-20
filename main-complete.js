@@ -38,9 +38,10 @@ function randomEl(list) {
     return list[i];
 }
 
-$(document).ready(function(){
-  $('#userName').text(randomEl(adjectives)+' '+randomEl(nouns));
-});
+
+var userName = document.getElementById('userName');
+userName.value = randomEl(adjectives)+' '+randomEl(nouns);
+
 
 
 
