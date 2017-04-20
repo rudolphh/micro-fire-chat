@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <style type="text/css">
+    #messages{margin-top: 20px; list-style: none; padding: 5px 0; border: 1px solid black; border-radius: 5px; height: 300px; overflow: auto;}
+    #messages>li{ border-bottom: 1px dotted black; padding: 1px 2px;}
+    #messages>li>img{width:40px; margin: 0 10px 0 0;}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-4 col-md-4">
+        <ul id="messages"></ul>
+        <form id="message-form">
+          <div class="input-group">
+            <input type="text" class="form-control" id="message">
+            <span class="input-group-btn">
+            <button type="submit" class="btn">Send</button>
+            </span>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-4">
+        <img id="userImage"/>
+        <span id="userName"></span>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCl88TKsswYTZZeGS-ke9xjoWN4q9LvEik",
+      authDomain: "nicechat-4498f.firebaseapp.com",
+      databaseURL: "https://nicechat-4498f.firebaseio.com",
+      projectId: "nicechat-4498f",
+      storageBucket: "nicechat-4498f.appspot.com",
+      messagingSenderId: "183335932793"
+    };
+    firebase.initializeApp(config);
+  </script>
+
+  <script src="main.js"></script>
+</body>
+</html>
