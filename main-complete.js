@@ -64,7 +64,7 @@ var messages = document.getElementById('messages');
 // Initialize Chat
 function chat() {
 
-  userName.value = randomEl(adjectives)+' '+randomEl(nouns);
+  userName.textContent = randomEl(adjectives)+' '+randomEl(nouns);
 
   // Saves message on form submit.
   form.onsubmit = function(e){
