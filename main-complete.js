@@ -72,7 +72,7 @@ function loadMessages() {
   messagesRef.off();
   messagesRef.on('child_added', function(data) {
     var val = data.val();
-    displayMessage(val.user + ': ' + val.text);
+    displayMessage('<strong>' + val.user + ':</strong> ' + val.text);
   });
 
 };
