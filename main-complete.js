@@ -1,5 +1,5 @@
 
-$('#username').text(randomEl(adjectives)+' '+randomEl(nouns));
+$('#userName').text(randomEl(adjectives)+' '+randomEl(nouns));
 
 
 function randomEl(list) {
