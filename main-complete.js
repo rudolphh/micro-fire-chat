@@ -71,9 +71,8 @@ function chat() {
 function loadMessages() {
   messagesRef.off();
   messagesRef.on('child_added', function(data) {
-    console.log(data);
     var val = data.val();
-    displayMessage(userName.textContent + ': ' + val.text);
+    displayMessage(val.user + ': ' + val.text);
   });
 };
 
