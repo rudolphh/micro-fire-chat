@@ -73,15 +73,9 @@ function loadMessages() {
   messagesRef.off();
   messagesRef.on('child_added', function(data) {
     var val = data.val();
-    if (initialDataLoaded) {
-      displayMessage(userName.textContent + ': ' + val.text);
-    } else {
-      displayMessage(val.user + ': ' + val.text);
-    }
-  });
 
-  messagesRef.once('value', function(snapshot) {
-    initialDataLoaded = true;
+      displayMessage(val.user + ': ' + val.text);
+
   });
 
 };
