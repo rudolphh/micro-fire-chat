@@ -61,10 +61,6 @@ function chat() {
     saveMessage(e);
   }
 
-  messagesRef.once('value', function(snapshot) {
-    initialDataLoaded = true;
-  });
-
   // Load previous chat messages.
   loadMessages();
 
@@ -82,6 +78,10 @@ function loadMessages() {
     } else {
       displayMessage(val.user + ': ' + val.text);
     }
+  });
+
+  messagesRef.once('value', function(snapshot) {
+    initialDataLoaded = true;
   });
 
 };
