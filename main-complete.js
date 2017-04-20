@@ -72,7 +72,7 @@ function loadMessages() {
   messagesRef.off();
   messagesRef.on('child_added', function(data) {
     var val = data.val();
-    displayMessage('<strong>' + val.user + ':</strong> ' + val.text);
+    displayMessage(val.user, val.text);
   });
 
 };
@@ -88,10 +88,15 @@ function saveMessage(e){
 };
 
 // Display a message in the UI.
-function displayMessage(text) {
+function displayMessage(user, message) {
   var node = document.createElement("li");
-  var textnode = document.createTextNode(text);
-  node.appendChild(textnode);
+  var userNode = document.createElement('strong');
+  var userText = document.createTextNode(user);
+  var messageNode = document.createTextNode(message);
+
+  userNode.appendChild(userText);
+  node.appendChild(userNode);
+  node.appendChild(messageNode);
   messages.appendChild(node);
   messages.scrollTop = messages.scrollHeight;
 };
