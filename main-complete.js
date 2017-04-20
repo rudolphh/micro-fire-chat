@@ -91,7 +91,7 @@ function saveMessage(e){
 function displayMessage(user, message) {
   var node = document.createElement("li");
   var userNode = document.createElement('strong');
-  var userText = document.createTextNode(user);
+  var userText = document.createTextNode(user + ': ');
   var messageNode = document.createTextNode(message);
 
   userNode.appendChild(userText);
