@@ -42,6 +42,7 @@ function randomEl(list) {
 
 ///////////////////////
 var database = firebase.database();
+var initialDataLoaded = false;
 var messagesRef = database.ref('messages');
 
 var userName = document.getElementById('userName');
@@ -60,6 +61,10 @@ function chat() {
     saveMessage(e);
   }
 
+  messagesRef.once('value', function(snapshot) {
+    initialDataLoaded = true;
+  });
+
   // Load previous chat messages.
   loadMessages();
 
@@ -72,8 +77,13 @@ function loadMessages() {
   messagesRef.off();
   messagesRef.on('child_added', function(data) {
     var val = data.val();
-    displayMessage(val.user + ': ' + val.text);
+    if (initialDataLoaded) {
+      displayMessage(userName.textContent + ': ' + val.text);
+    } else {
+      displayMessage(val.user + ': ' + val.text);
+    }
   });
+
 };
 
 // Save a new message on the Firebase DB.
