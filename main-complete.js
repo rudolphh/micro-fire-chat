@@ -91,7 +91,7 @@ function loadMessages() {
 // Save a new message on the Firebase DB.
 function saveMessage(e){
   e.preventDefault();
-  messagesRef.push({ user: userName.innerHTML, text: message.value}).then(function() {
+  messagesRef.push({ user: userName.textContent, text: message.value}).then(function() {
     // Clear message text field and focus on it.
     message.value = '';
     message.focus();
