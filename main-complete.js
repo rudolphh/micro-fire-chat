@@ -42,7 +42,6 @@ function randomEl(list) {
 
 ///////////////////////
 var database = firebase.database();
-var initialDataLoaded = false;
 var messagesRef = database.ref('messages');
 
 var userName = document.getElementById('userName');
@@ -73,9 +72,7 @@ function loadMessages() {
   messagesRef.off();
   messagesRef.on('child_added', function(data) {
     var val = data.val();
-
-      displayMessage(val.user + ': ' + val.text);
-
+    displayMessage(val.user + ': ' + val.text);
   });
 
 };
