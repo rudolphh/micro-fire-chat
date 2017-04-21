@@ -28,6 +28,7 @@ function chat() {
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
+    console.log(errorMessage);
     // The email of the user's account used.
     var email = error.email;
     // The firebase.auth.AuthCredential type that was used.
