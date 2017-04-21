@@ -88,10 +88,12 @@ function displayMessage(e) {
   var imgNode = document.createElement('img');
   imgNode.src = e.userImage;
 
+  var textParagraph = document.createElement('p');
   var textnode = document.createTextNode(e.text);
+  textParagraph.appendChild(textnode);
 
   node.appendChild(imgNode);
-  node.appendChild(textnode);
+  node.appendChild(textParagraph);
   messages.appendChild(node);
   messages.scrollTop = messages.scrollHeight;
 };
