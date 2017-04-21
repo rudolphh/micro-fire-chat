@@ -2,7 +2,9 @@ var database = firebase.database();
 var messagesRef = database.ref('messages');
 
 var provider = new firebase.auth.GoogleAuthProvider();
-
+var user = null;
+var token = null;
+var email = null;
 
 
 ///// html form, messages, and message selectors
@@ -18,7 +20,9 @@ function chat() {
     // This gives you a Google Access Token. You can use it to access the Google API.
     var token = result.credential.accessToken;
     // The signed-in user info.
-    var user = result.user;
+    user = result.user;
+
+    console.log(user);
     // ...
   }).catch(function(error) {
     // Handle Errors here.
@@ -30,11 +34,6 @@ function chat() {
     var credential = error.credential;
     // ...
 });
-
-
-
-
-
 
   // Save message on form submit.
   form.onsubmit = function(e){
