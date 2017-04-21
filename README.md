@@ -3,21 +3,15 @@
 A minimal Firebase chat example. Adapted from [google's codelab.]
 (https://codelabs.developers.google.com/codelabs/firebase-web)
 
-Deployed at <https://devm33.github.io/firebase-minichat>
+Deployed at <https://rudolphh.github.io/micro-fire-chat>
 
 ## 1. Create a Firebase project
 
 At <https://console.firebase.google.com> sign-up and then click on CREATE NEW PROJECT.
 
-![CREATE NEW PROJECT](img/create_new_project_btn.png)
-
 In the Firebase Console, in the Overview click the Add Firebase to your web app button.
 
-![Add Firebase Web App](img/add_firebase_webapp.png)
-
-Copy the generated code snippet:
-
-![Firebase html/js code snippet](img/firebase_js_init.png)
+Copy the generated code snippet.
 
 Create an `index.html` file and paste the generated code in it.
 
@@ -168,8 +162,6 @@ Chat.prototype.saveMessage = function(e) {
 ### 8. Test it out!
 
 Open up index.html in one or more tabs and try it out.
-
-![Screen shot of chat working](img/screenshot.png)
 
 ### 9. Deploy to GitHub Pages
 
