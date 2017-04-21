@@ -86,7 +86,7 @@ function saveMessage(e){
 function displayMessage(e) {
   var node = document.createElement("li");
   var imgNode = document.createElement('img');
-  imgNode.src = e.photoURL;
+  imgNode.src = e.userImage;
 
   var textnode = document.createTextNode(e.text);
 
