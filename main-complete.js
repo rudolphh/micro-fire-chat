@@ -69,6 +69,7 @@ function chat() {
 function loadMessages() {
   messagesRef.off();
   messagesRef.on('child_added', function(data) {
+    var key = data.key;
     var val = data.val();
     displayMessage(val.user, val.text);
   });
