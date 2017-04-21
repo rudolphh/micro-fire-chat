@@ -22,7 +22,7 @@ function chat() {
     // The signed-in user info.
     user = result.user;
 
-    alert(user);
+    console.log(user);
     // ...
   }).catch(function(error) {
     // Handle Errors here.
