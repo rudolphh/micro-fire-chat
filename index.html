@@ -8,6 +8,10 @@
     #messages>li{ border-bottom: 1px dotted black; padding: 1px 2px;}
     #messages>li>img{width:40px; margin: 0 10px 0 0;}
 
+    #user-info { padding: 20px; }
+    #userImage { width: 35px; border-radius: 50%; margin-right: 10px;}
+    #userEmail { float: right; margin-top: 4px;}
+
     img.emoji {
       // Override any img styles to ensure Emojis are displayed inline
       margin: 0px !important;
@@ -30,7 +34,7 @@
           </div>
         </form>
       </div>
-      <div class="col-md-4">
+      <div id="user-info" class="col-md-4">
         <img id="userImage"/>
         <span id="userName"></span>
         <span id="userEmail"></span>

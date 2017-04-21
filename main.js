@@ -30,29 +30,30 @@ function chat() {
     userName.textContent = user.displayName;
     userEmail.textContent = user.email;
 
-    console.log(user);
-    // ...
-  }).catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    console.log(errorMessage);
-    // The email of the user's account used.
-    var email = error.email;
-    // The firebase.auth.AuthCredential type that was used.
-    var credential = error.credential;
-    // ...
-});
+    //console.log(user);
 
-  // Save message on form submit.
-  form.onsubmit = function(e){
-    e.preventDefault(e);
-    saveMessage(e);
-  }
-  // Load previous chat messages.
-  loadMessages();
-  // Focus on the input
-  message.focus();
+    // Save message on form submit.
+    form.onsubmit = function(e){
+      e.preventDefault(e);
+      saveMessage(e);
+    }
+    // Load previous chat messages.
+    loadMessages();
+    // Focus on the input
+    message.focus();
+
+  }).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log(errorMessage);
+      // The email of the user's account used.
+      var email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      var credential = error.credential;
+      // ...
+  });
+
 }
 
 // Load chat message history and listen for new messages.
@@ -70,7 +71,12 @@ function loadMessages() {
 
 // Save a new message on the Firebase DB.
 function saveMessage(e){
-  messagesRef.push({ text: message.value }).then(function(){
+  messagesRef.push({
+    userName: userName.textContent,
+    userEmail: userEmail.textContent,
+    userImage: userImage.src,
+    text: message.value
+  }).then(function(){
     message.value = '';
     message.focus();
   });
@@ -79,7 +85,12 @@ function saveMessage(e){
 // Display a message in the UI.
 function displayMessage(e) {
   var node = document.createElement("li");
+  var imgNode = document.createElement('img');
+  imgNode.src = e.photoURL;
+
   var textnode = document.createTextNode(e.text);
+
+  node.appendChild(imgNode);
   node.appendChild(textnode);
   messages.appendChild(node);
   messages.scrollTop = messages.scrollHeight;
