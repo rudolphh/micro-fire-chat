@@ -12,6 +12,11 @@ var form = document.getElementById('message-form');
 var message = document.getElementById('message');
 var messages = document.getElementById('messages');
 
+var userImage = document.getElementById('userImage');
+var userName = document.getElementById('userName');
+var userEmail = document.getElementById('userEmail');
+
+
 // Initialize Chat
 function chat() {
 
@@ -21,6 +26,9 @@ function chat() {
     var token = result.credential.accessToken;
     // The signed-in user info.
     user = result.user;
+    userImage.src = user.photoURL;
+    userName.textContent = user.displayName;
+    userEmail.textContent = user.email;
 
     console.log(user);
     // ...
